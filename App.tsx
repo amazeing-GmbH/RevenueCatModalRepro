@@ -5,9 +5,11 @@
  * @format
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Button,
+  Modal,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -16,6 +18,8 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import Purchases from 'react-native-purchases';
+import RevenueCatUI from 'react-native-purchases-ui';
 
 import {
   Colors,
@@ -28,6 +32,9 @@ import {
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
+
+const REVENUECAT_APP_API = 'FILL_ME_IN';
+const REVENUECAT_ENTITLEMENT_ID = 'FILL_ME_IN';
 
 function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -57,6 +64,21 @@ function Section({children, title}: SectionProps): React.JSX.Element {
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  const [visible, setVisible] = React.useState(false);
+
+  useEffect(() => {
+    const initRevenueCat = async () => {
+      console.log('Initializing RevenueCat');
+
+      /** Initialize RevenueCat otherwise */
+      Purchases.setLogLevel(Purchases.LOG_LEVEL.INFO);
+      Purchases.configure({
+        apiKey: REVENUECAT_APP_API,
+      });
+    };
+
+    initRevenueCat();
+  }, []);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -76,6 +98,30 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
+          <Section title="Revenue Cat">
+            <Text>
+              RevenueCat Reproduction example, where the Paywall is not loading
+              when being called from within a react-native "Modal" component.
+            </Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                paddingTop: 16,
+              }}>
+              <Button
+                title="Paywall w/o Modal"
+                onPress={async () => {
+                  const result = await RevenueCatUI.presentPaywallIfNeeded({
+                    requiredEntitlementIdentifier: REVENUECAT_ENTITLEMENT_ID,
+                  });
+                  console.log('Paywall result', result);
+                }}
+              />
+              <Button title="Open modal" onPress={() => setVisible(true)} />
+            </View>
+          </Section>
           <Section title="Step One">
             Edit <Text style={styles.highlight}>App.tsx</Text> to change this
             screen and then come back to see your edits.
@@ -92,6 +138,28 @@ function App(): React.JSX.Element {
           <LearnMoreLinks />
         </View>
       </ScrollView>
+      <Modal
+        visible={visible}
+        presentationStyle="pageSheet"
+        animationType="slide">
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <Text style={{padding: 8}}>
+            {'Clicking on Paywall w/ Modal will not yield a new modal, but will end up with an error in Xcode ' +
+              'like "Attempt to present <RCPaywallViewController: 0x10a885400> on <UIViewController: 0x106010ea0> ' +
+              '(from <UIViewController: 0x106010ea0>) which is already presenting <RCTModalHostViewController: 0x106162ab0>.'}
+          </Text>
+          <Button
+            title="Paywall w/ Modal"
+            onPress={async () => {
+              const result = await RevenueCatUI.presentPaywallIfNeeded({
+                requiredEntitlementIdentifier: REVENUECAT_ENTITLEMENT_ID,
+              });
+              console.log('Paywall result', result);
+            }}
+          />
+          <Button title="Close Modal" onPress={() => setVisible(false)} />
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }

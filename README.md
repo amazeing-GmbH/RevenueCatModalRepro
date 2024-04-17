@@ -1,8 +1,33 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# RevenueCat Paywall on Modal reproducer
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+1. Checkout the repo
+2. Install required packages by running `yarn`
+3. Setup the test app in RevenueCat or use a existing app bundle name and credentials
+4. Run the iOS simulator `yarn run-ios` or via Xcode
+5. Open the `App.tsx` file and setup RevenueCat keys/entitlements
+
+   ```ts
+   const REVENUECAT_APP_API = 'FILL_ME_IN';
+   const REVENUECAT_ENTITLEMENT_ID = 'FILL_ME_IN';
+   ```
+
+6. Reload the app and click on "Paywall w/o Modal"
+
+   - Result is a Paywall Modal will open
+
+7. Click on "Open modal" and in the modal click on "Paywall w/ modal"
+
+   - Result is that nothing happens, you only get an error in Xcode
+
+   ```
+   Attempt to present <RCPaywallViewController: 0x10993aa00> on <UIViewController: 0x105310a70> (from <UIViewController: 0x105310a70>) which is already presenting <RCTModalHostViewController: 0x10412b260>.
+   ```
+
+## Getting Started
+
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
 

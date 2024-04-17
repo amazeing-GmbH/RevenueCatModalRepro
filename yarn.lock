@@ -1865,6 +1865,16 @@
     invariant "^2.2.4"
     nullthrows "^1.1.1"
 
+"@revenuecat/purchases-typescript-internal@10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@revenuecat/purchases-typescript-internal/-/purchases-typescript-internal-10.1.0.tgz#f97958aa415b65750fe1a87518797e86a9e2a7e7"
+  integrity sha512-ItD/eToap9codS6IkhGGZTtrDPFvDPTDjo7CdW+ghanSO+tY3VthpBTuO6eUcS4eIelTLS0nFKZUtUfJzYvxRw==
+
+"@revenuecat/purchases-typescript-internal@10.4.0":
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/@revenuecat/purchases-typescript-internal/-/purchases-typescript-internal-10.4.0.tgz#1250995627cd55faeedfd68e3cb338ac530c6697"
+  integrity sha512-MM6XDy5TyFIzpREqwBVxrmh+DquUzkDKIBOCkynJFulBJWFwPTcwP+Ykoc9mrgw/enMW8QfJmQWmgb6BC6rSsw==
+
 "@sideway/address@^4.1.5":
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/@sideway/address/-/address-4.1.5.tgz#4bc149a0076623ced99ca8208ba780d65a99b9d5"
@@ -5547,6 +5557,21 @@ react-is@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
+react-native-purchases-ui@^7.26.1:
+  version "7.26.1"
+  resolved "https://registry.yarnpkg.com/react-native-purchases-ui/-/react-native-purchases-ui-7.26.1.tgz#5eebe7ad40f28ebb5e57c2cca2468922cea317d7"
+  integrity sha512-G3SpiyWZEkc2ZUp8PU2neebwI8z/9PFZjhrloylEBGM+JgQn9mJ3/D9saFhPiLkLXL6UqZ7jFaJGQhCFiZ717w==
+  dependencies:
+    "@revenuecat/purchases-typescript-internal" "10.1.0"
+    react-native-purchases "7.26.1"
+
+react-native-purchases@7.26.1, react-native-purchases@^7.26.1:
+  version "7.26.1"
+  resolved "https://registry.yarnpkg.com/react-native-purchases/-/react-native-purchases-7.26.1.tgz#cd3ea351d1e9879b09ea54715d997e96f480d2a6"
+  integrity sha512-4VHwW4NH/5iZX5aogp4RdNjeH5WdLKtFUct5JLi2N3XIMB9DzD1bB0zylfA4SWfwseYf32qsQQ5+N4snortEbw==
+  dependencies:
+    "@revenuecat/purchases-typescript-internal" "10.4.0"
 
 react-native@0.73.6:
   version "0.73.6"

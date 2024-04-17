@@ -73,6 +73,11 @@ PODS:
   - hermes-engine/Pre-built (0.73.6)
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.1100)
+  - PurchasesHybridCommon (10.4.0):
+    - RevenueCat (= 4.40.0)
+  - PurchasesHybridCommonUI (10.4.0):
+    - PurchasesHybridCommon (= 10.4.0)
+    - RevenueCatUI (= 4.40.0)
   - RCT-Folly (2022.05.16.00):
     - boost
     - DoubleConversion
@@ -1111,6 +1116,15 @@ PODS:
     - React-jsi (= 0.73.6)
     - React-logger (= 0.73.6)
     - React-perflogger (= 0.73.6)
+  - RevenueCat (4.40.0)
+  - RevenueCatUI (4.40.0):
+    - RevenueCat (= 4.40.0)
+  - RNPaywalls (7.26.1):
+    - PurchasesHybridCommonUI (= 10.4.0)
+    - React-Core
+  - RNPurchases (7.26.1):
+    - PurchasesHybridCommon (= 10.4.0)
+    - React-Core
   - SocketRocket (0.6.1)
   - Yoga (1.14.0)
 
@@ -1187,6 +1201,8 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - RNPaywalls (from `../node_modules/react-native-purchases-ui`)
+  - RNPurchases (from `../node_modules/react-native-purchases`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -1203,6 +1219,10 @@ SPEC REPOS:
     - fmt
     - libevent
     - OpenSSL-Universal
+    - PurchasesHybridCommon
+    - PurchasesHybridCommonUI
+    - RevenueCat
+    - RevenueCatUI
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -1301,6 +1321,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNPaywalls:
+    :path: "../node_modules/react-native-purchases-ui"
+  RNPurchases:
+    :path: "../node_modules/react-native-purchases"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -1323,6 +1347,8 @@ SPEC CHECKSUMS:
   hermes-engine: 9cecf9953a681df7556b8cc9c74905de8f3293c0
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
+  PurchasesHybridCommon: 70b93acd428e5f67a4d2f13de4c4eb229e4ff39f
+  PurchasesHybridCommonUI: d49dfe602dfea7835a113172f0e40df747b9ae26
   RCT-Folly: 7169b2b1c44399c76a47b5deaaba715eeeb476c0
   RCTRequired: ca1d7414aba0b27efcfa2ccd37637edb1ab77d96
   RCTTypeSafety: 678e344fb976ff98343ca61dc62e151f3a042292
@@ -1364,6 +1390,10 @@ SPEC CHECKSUMS:
   React-runtimescheduler: 9636eee762c699ca7c85751a359101797e4c8b3b
   React-utils: d16c1d2251c088ad817996621947d0ac8167b46c
   ReactCommon: 2aa35648354bd4c4665b9a5084a7d37097b89c10
+  RevenueCat: f33d2bb58e75afc68d3a8cf193971f008f553a2c
+  RevenueCatUI: f3c05c088452b96b9acc33f048459497b5615391
+  RNPaywalls: 43e0a8becb1203a5995a1e9092969e5bfcb5acbf
+  RNPurchases: a5de24f9f6b64103a71b3646e5b7866b77e9969e
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 805bf71192903b20fc14babe48080582fee65a80
 
